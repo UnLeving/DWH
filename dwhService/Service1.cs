@@ -79,7 +79,7 @@ namespace dwhService
             { '$', ';' },
             { '~', 'Ё' }
         };
-        TelegramBotClient bot = new TelegramBotClient("api key");
+        TelegramBotClient bot = new TelegramBotClient("API key");
         Dictionary<char, string> leetDict;
         bool isLeet = false;
 
@@ -122,10 +122,10 @@ namespace dwhService
         {
             string output = string.Empty;
             if (!isLeet)
-                foreach (var item in input.ToLower())
+                foreach (var item in input)
                     output += keyValuePairs.TryGetValue(item, out char ch) ? ch : item;
             else
-                foreach (var item in input.ToLower())
+                foreach (var item in input)
                     output += leetDict.TryGetValue(item, out string ch) ? ch : item.ToString();
             return output;
         }
